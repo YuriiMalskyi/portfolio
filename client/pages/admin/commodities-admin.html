@@ -1,0 +1,979 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Admin panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <style>
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: coral;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .close {
+            color: aquamarine;
+            font-size: 28px;
+            font-weight: bold;
+            margin-left: auto;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .popup-header {
+            background-color: #5c82b8;
+            color: white;
+            display: flex;
+            padding: 2px 16px;
+        }
+
+        .popup-body {
+            padding: 2px 16px;
+        }
+
+        .popup-footer {
+            padding: 2px 16px;
+            background-color: olivedrab;
+            color: white;
+        }
+
+        .popup-header-div {
+            margin-left: 40%;
+        }
+
+        .popup-content {
+            position: relative;
+            font-size: 20px;
+            background-color: #fefefe;
+            margin: auto;
+            top: 100px;
+            padding: 0;
+            border: 1px solid #888;
+            width: 70%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0.19);
+            animation-name: animatetop;
+            animation-duration: 0.7s
+        }
+
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+
+            to {
+                top: 100px;
+                opacity: 0.7
+            }
+        }
+
+    </style>
+
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <script src="js/jquery.min.js"> </script>
+    <!-- Mainly scripts -->
+    <script src="js/jquery.metisMenu.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/custom.js"></script>
+    <script src="js/screenfull.js"></script>
+    <script>
+        $(function() {
+            $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+            if (!screenfull.enabled) {
+                return false;
+            }
+
+
+
+            $('#toggle').click(function() {
+                screenfull.toggle($('#container')[0]);
+            });
+
+
+
+        });
+
+    </script>
+
+    <!----->
+
+    <!--pie-chart--->
+    <script src="js/pie-chart.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#demo-pie-1').pieChart({
+                barColor: '#3bb2d0',
+                trackColor: '#eee',
+                lineCap: 'round',
+                lineWidth: 8,
+                onStep: function(from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+
+            $('#demo-pie-2').pieChart({
+                barColor: '#fbb03b',
+                trackColor: '#eee',
+                lineCap: 'butt',
+                lineWidth: 8,
+                onStep: function(from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+
+            $('#demo-pie-3').pieChart({
+                barColor: '#ed6498',
+                trackColor: '#eee',
+                lineCap: 'square',
+                lineWidth: 8,
+                onStep: function(from, to, percent) {
+                    $(this.element).find('.pie-value').text(Math.round(percent) + '%');
+                }
+            });
+
+
+        });
+
+    </script>
+    <!--skycons-icons-->
+    <script src="js/skycons.js"></script>
+    <!--//skycons-icons-->
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!----->
+        <nav class="navbar-default navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1> <a class="navbar-brand" href="D:\Politech\Logos final project\project\client\pages\public\index.html">Electro</a></h1>
+            </div>
+            <div class="border-bottom">
+                <div class="full-left">
+                    <section class="full-top">
+                        <button id="toggle"><i class="fa fa-arrows-alt"></i></button>
+                    </section>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            <div class="clearfix">
+
+            </div>
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="users-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Users controll</span><span class="fa arrow"></span></a>
+                        </li>
+
+                        <li>
+                            <a href="commodities-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Commodities controll</span><span class="fa arrow"></span></a>
+                        </li>
+
+                        <li>
+                            <a href="categories-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Categories controll</span><span class="fa arrow"></span></a>
+                        </li>
+
+                        <li>
+                            <a href="producers-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Producers controll</span><span class="fa arrow"></span></a>
+                        </li>
+                        <li>
+                            <a href="orders-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Orders controll</span><span class="fa arrow"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog fa-spin nav_icon"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+
+                                <button id="logoutBtn" class="btn btn-danger col-sm-11"><i class="fa fa-sign-out"></i>Logout</button>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="content-main">
+                <div class="grid-form1">
+                    <h3>Add new product</h3>
+
+                    <div class="panel-body">
+                        <form role="form" class="form-horizontal" id="addCommodityForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Product name</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="text" class="form-control1" placeholder="Product name" id="name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Description</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <textarea name="myTextArea" id="description" cols="70" rows="10" placeholder="Add description here..."></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Product image</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="file" class="form-control" id="productImage">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Count</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="number" class="form-control1" placeholder="Count" id="count">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Price</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="number" class="form-control1" placeholder="Price" id="price">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Category</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <select id="category">
+                                            <option selected disabled></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Producer</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <select id="producer">
+                                            <option selected disabled></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-sm-offset-4">
+                                <button class="btn btn-success">Add product</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-striped" id="commoditiesTable">
+                    <thead>
+                        <tr>
+                            <td>Image</td>
+                            <!--                            <td>ProductId(String)</td>-->
+                            <td>Name</td>
+                            <td>Description</td>
+                            <td>Count</td>
+                            <td>Price</td>
+                            <td>Category</td>
+                            <td>Producer</td>
+                            <td>Upload image</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+
+    <!-- HTML-код модального окна -->
+    <div id="myModalBox" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Заголовок модального окна -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Edit product</h4>
+                </div>
+                <!-- Основное содержимое модального окна -->
+                <div class="modal-body" id="modalWindow">
+
+                </div>
+                <!-- Футер модального окна -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success" id="saveEdit">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>-->
+    <script>
+        var globalCommodityId;
+
+        function logout() {
+            //swal(confirmation);
+            window.localStorage.removeItem('auth_token');
+            window.location('signin.html');
+        }
+
+        $(document).ready(function() {
+
+            let token = window.localStorage.getItem('auth_token');
+
+            $.ajaxSetup({
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            });
+
+            getCommodities();
+
+            fillProducers();
+
+            fillCategories();
+
+            submit();
+
+            $(document).on('click', '#delete', function(e) {
+                deleteCommodity(e.target.value);
+
+                $('#' + e.target.value).empty();
+                //                refresh();
+            });
+
+            $(document).on('click', '#edit', function(e) {
+                editCommodity(e.target.value);
+                $("#myModalBox").modal('show');
+            });
+
+            $(document).on('click', '#saveEdit', function(e) {
+                if ($('#nameUpd').val() === "" || $('#descriptionUpd').val() === "" || $('#countUpd').val() === "" || $('#priceUpd').val() === "") {
+                    swal("Wait a second", "Parse all textfields first!", "error");
+                } else {
+                    if (document.getElementById("categoryUpd").options[document.getElementById("categoryUpd").selectedIndex].value != "" || document.getElementById("producerUpd").options[document.getElementById("producerUpd").selectedIndex].value != "") {
+                        if (document.getElementById("productImageUpd").files.length != 0) {
+
+                            alert("new image");
+                            updateCommodity(true);
+                        } else {
+                            alert("old image");
+                            updateCommodity(false);
+
+
+                        }
+
+                    } else {
+                        swal("Wait a second", "Choose category and producer please!", "error");
+                    }
+                }
+            });
+
+
+            $(document).on('change', '#commoditiesTable tbody input', function(e) {
+                let elementId = e.target.id;
+                console.log(elementId);
+                let commodityId = elementId.split('-')[1];
+                uploadFile(commodityId);
+            }); // DONE
+
+        });
+
+
+        function uploadFile(commodityId) {
+            let formData = new FormData();
+            formData.append('image', $('#image-' + commodityId)[0].files[0]);
+
+            $.ajax({
+                url: serverUrl + 'commodities/image/' + commodityId,
+                method: 'POST',
+                contentType: false,
+                data: formData,
+                processData: false,
+                complete: function(data) {
+                    getCommodities();
+                }
+            })
+        } // DONE
+
+        function updateFile(commodityId) {
+            let formData = new FormData();
+            formData.append('image', $('#imageUpd')[0].files[0]);
+
+            $.ajax({
+                url: serverUrl + 'commodities/image/' + commodityId,
+                method: 'POST',
+                contentType: false,
+                data: formData,
+                processData: false,
+                complete: function(data) {
+                    getCommodities();
+                }
+            })
+        } // DONE
+
+
+        function fillProducers() {
+
+            $.ajax({
+                url: serverUrl + 'producers',
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        //                        alert("key : " + key + " | value.name : " + value.name + " | value.producerId : " + value.id)
+                        $('#producer')
+                            .append($("<option></option>")
+                                .attr("value", value.id)
+                                .text(value.name));
+                    })
+                }
+            })
+        } // DONE
+
+        function fillCategories() {
+
+            $.ajax({
+                url: serverUrl + 'categories',
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        $('#category')
+                            .append($("<option></option>")
+                                .attr("value", value.id)
+                                .text(value.name));
+
+                    })
+                }
+            })
+        } // DONE        
+
+        function fillUpdProducers() {
+
+            $.ajax({
+                url: serverUrl + 'producers',
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        $('#producerUpd')
+                            .append($("<option></option>")
+                                .attr("value", value.id)
+                                .text(value.name));
+                    })
+                }
+            })
+        } // DONE
+
+        function fillUpdCategories() {
+
+            $.ajax({
+                url: serverUrl + 'categories',
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        $('#categoryUpd')
+                            .append($("<option></option>")
+                                .attr("value", value.id)
+                                .text(value.name));
+                    })
+                }
+            })
+        } // DONE
+
+        function deleteCommodity(commodityId) {
+            $.ajax({
+                url: serverUrl + 'commodities/delete/' + commodityId,
+                type: 'DELETE',
+                success: function(result) {
+                    $.ajax({
+                        url: serverUrl + 'commodities/image-delete/' + commodityId,
+                        type: 'DELETE',
+                        success: function(result) {
+                            //                            refresh();
+                            //                            $('#commoditiesTable tbody').empty();
+                            //                            getCommodities();
+                        }
+
+                    });
+                }
+
+            });
+
+        } // DONE
+
+        function refresh() {
+            $('#commoditiesTable tbody').empty();
+            getCommodities();
+        } // DONE
+
+        function submit() {
+            $('#addCommodityForm').submit(function(e) {
+                e.preventDefault();
+                if ($('#name').val() === "" || $('#description').val() === "" || $('#count').val() === "" || $('#price').val() === "") {
+                    swal("Wait a second", "Parse all textfields first!", "error");
+                } else {
+                    if (document.getElementById("category").options[document.getElementById("category").selectedIndex].value != "" || document.getElementById("producer").options[document.getElementById("producer").selectedIndex].value != "") {
+                        if (document.getElementById("productImage").files.length != 0) {
+                            //                            preaploadImage();
+                            send();
+                        } else {
+                            //                            swal("Wait a second", "Choose a picture!", "error");
+                            send();
+                        }
+                    } else {
+                        swal("Wait a second", "Choose category and producer please!", "error");
+                    }
+                }
+
+            });
+        } // DONE
+
+        function send() {
+
+            //            preaploadImage();
+            let name = $('#name').val();
+            let description = $('#description').val();
+            let count = $('#count').val();
+            let price = $('#price').val();
+            let imageURL = $('#productImage').val();
+            var selectedValue = document.getElementById("category");
+            let categoryId = selectedValue.options[selectedValue.selectedIndex].value;
+
+            var selectedValue = document.getElementById("producer");
+            let producerId = selectedValue.options[selectedValue.selectedIndex].value;
+
+            let commodityObj;
+
+            commodityObj = {
+                name: name,
+                description: description,
+                imageURL: null,
+                count: count,
+                price: price,
+                category: {
+                    id: categoryId
+                },
+                producer: {
+                    id: producerId
+                }
+            }
+
+
+            $.ajax({
+                url: serverUrl + 'commodities',
+                method: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(commodityObj),
+                complete: function(data) {
+                    console.log(data);
+                    if (data.status == 500) {
+                        console.log('Error happened');
+                        swal("Error!", "" + data, "error");
+                    }
+
+                    if (data.status == 201) {
+                        //                        swal("Commodity added!", "", "success");
+                        //                        swal({
+                        // title: "Ajax request example",
+                        // text: "Submit to run ajax request",
+                        // type: "info",
+                        // showCancelButton: true,
+                        // closeOnConfirm: false,
+                        // showLoaderOnConfirm: true
+                        // }, function() {
+                        // setTimeout(function() {
+                        // swal("Ajax request finished!");
+                        // }, 2000);
+                        // });
+                        preaploadImage();
+
+                    }
+                }
+            });
+
+
+
+        } // DONE
+
+        function preaploadImage() {
+            swal("Please wait!", "Uploading image", "warning");
+            var id;
+            $.ajax({
+                url: serverUrl + 'commodities/get-last-created-commodity-id',
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+
+                    let formData = new FormData();
+                    formData.append('image', $('#productImage')[0].files[0]);
+                    $.ajax({
+                        url: serverUrl + 'commodities/image/' + response,
+                        method: 'POST',
+                        contentType: false,
+                        data: formData,
+                        processData: false,
+                        complete: function(data) {
+                            swal("Image uploaded!", "", "success")
+
+                            $('#commoditiesTable tbody').empty();
+                            $('#addCommodityForm')[0].reset();
+                            getCommodities();
+                        }
+                    });
+                }
+            });
+
+
+
+        }
+
+        function updateImageEditWindow(commodityId) {
+
+            var returnVal;
+
+            let formData = new FormData();
+            formData.append('image', $('#productImageUpd')[0].files[0]);
+            $.ajax({
+                url: serverUrl + 'commodities/image-update/' + commodityId,
+                method: 'PUT',
+                async: false,
+                contentType: false,
+                data: formData,
+                processData: false,
+                complete: function(response) {
+                    //                    return response.responseText;
+                    returnVal = response.responseText;
+                }
+            });
+            return returnVal;
+        }
+
+        function updateCommodity(new_image) {
+
+            let UpdId = globalCommodityId;
+
+            let name = $('#nameUpd').val();
+            let description = $('#descriptionUpd').val();
+
+            let imageURL = (new_image) ? updateImageEditWindow(UpdId) : null;
+
+            let count = $('#countUpd').val();
+            let price = $('#priceUpd').val();
+
+            var selectedValue = document.getElementById("categoryUpd");
+            let categoryId = selectedValue.options[selectedValue.selectedIndex].value;
+
+            var selectedValue = document.getElementById("producerUpd");
+            let producerId = selectedValue.options[selectedValue.selectedIndex].value;
+
+            let commodityUpdObj;
+
+            commodityUpdObj = {
+                id: UpdId,
+                name: name,
+                description: description,
+                imageURL: imageURL,
+                count: count,
+                price: price,
+                category: {
+                    id: categoryId
+                },
+                producer: {
+                    id: producerId
+                }
+            }
+            alert("Commodity.ImageURL : " + commodityUpdObj.imageURL);
+            $.ajax({
+                url: serverUrl + 'commodities/update/' + new_image,
+                method: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(commodityUpdObj),
+                complete: function(data) {
+                    console.log(data);
+                    if (data.status == 500) {
+                        console.log('Error happened');
+                        swal("Error!", "Server failure", "error");
+                    }
+
+                    if (data.status == 202) {
+                        swal("Updated successfuly!", "Update completed.", "success");
+                        $('#commoditiesTable tbody').empty();
+                        $('#addCommodityForm')[0].reset();
+                        getCommodities();
+                    }
+                }
+            });
+
+            $('#modalWindow').empty();
+            $("#myModalBox").modal('hide');
+            $('#commodityTable tbody').empty();
+            getCommodities();
+        }
+
+        function editCommodity(commodityId) {
+
+            globalCommodityId = commodityId;
+
+            $('#modalWindow').empty();
+            var name;
+            var description;
+            var count;
+            var price;
+            var category;
+            var producer;
+            $.ajax({
+                url: serverUrl + 'commodities/get-commodity/' + commodityId,
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    globalId = response.commodityStringId;
+                    image = response.imageURL;
+                    name = response.name;
+                    description = response.description;
+                    count = response.count;
+                    price = response.price;
+                    category = response.category.name;
+                    producer = response.producer.name;
+                    $('#modalWindow').append(
+                        `
+                        <form role="form" class="form-horizontal" id="addCommodityForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Product name</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="text" class="form-control1" placeholder="Product name" id="nameUpd" value="${name}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Description</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <textarea name="myTextArea" id="descriptionUpd" cols="45" rows="10" placeholder="Add description here...">${description}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label class="control-label">Current image: </label>
+                                </div>
+                                <div class="col-md-8">
+                                <div class="col-md-offset-2">
+                                <img src="${image}" width=500px></img>
+                                </div>
+                                </div>
+                                    <br>
+                                <div class="col-md-8">
+                                <label class="control-label">New image</label>
+                                </div>                                
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="file" class="form-control" id="productImageUpd" value="${image-commodityId}">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Count</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="number" class="form-control1" placeholder="Count" id="countUpd" value="${count}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Price</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="number" class="form-control1" placeholder="Price" id="priceUpd" value="${price}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label class="control-label">Current category: ${category}</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Category</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <select id="categoryUpd">
+                                            <option selected disabled></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-8">
+                                    <label class="control-label">Current producer: ${producer}</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Producer</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <select id="producerUpd">
+                                            <option selected disabled></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        `
+                    );
+
+                    fillUpdCategories();
+
+                    fillUpdProducers();
+
+                }
+
+            });
+
+        } // DONE
+
+        function getCommodities() {
+            $('#commoditiesTable tbody').empty();
+            $.ajax({
+                url: serverUrl + 'commodities',
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        $('#commoditiesTable tbody').append(
+                            `
+                            <tr id="${value.id}">
+                                <td><img src="${value.imageURL}" width=200px></img> </td>
+                                <td> ${ value.name } </td>
+                                <td> ${ value.description } </td>
+                                <td> ${ value.count } </td>
+                                <td> ${ value.price } </td>
+                                <td> ${ value.category.name } </td>
+                                <td> ${ value.producer.name } </td>
+                                <td> <input type="file" class="form-control" id="image-${value.id}"></button>
+                                <td> <button id="edit" value="${value.id}">Edit</button>
+                                <td> <button id="delete" value="${value.id}">Delete</button>
+                                
+                            </tr>
+                            `
+                        ); //<td> ${ value.commodityStringId} </td>
+                    })
+                }
+            });
+        } // DONE
+
+    </script>
+</body>
+
+</html>

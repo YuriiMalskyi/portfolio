@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Electro - HTML Ecommerce Template</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +096-603-43-62</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> yurkkaa@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> Ugorska Street, Lviv, Ukraine</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="index.html" class="logo">
+                                <img src="./img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+
+                    <!-- ACCOUNT -->
+                    <div class="col-md-9 clearfix">
+                        <div class="header-ctn">
+
+
+
+                            <!-- Cart -->
+                            <div class="dropdown" id="dropdownCart">
+
+                            </div>
+                            <!-- /Cart -->
+
+
+
+                            <!-- Menu Toogle -->
+                            <div class="menu-toggle">
+                                <a href="#">
+                                    <i class="fa fa-bars"></i>
+                                    <span>Menu</span>
+                                </a>
+                            </div>
+                            <!-- /Menu Toogle -->
+                        </div>
+                    </div>
+                    <!-- /ACCOUNT -->
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chosen-category.html" id="cpus">CPUs</a></li>
+                    <li><a href="chosen-category.html" id="motherboards">Motherboards</a></li>
+                    <li><a href="chosen-category.html" id="rams">RAMs</a></li>
+                    <li><a href="chosen-category.html" id="gpus">Graphics cards</a></li>
+                    <li><a href="chosen-category.html" id="memory">Memory storages</a></li>
+                    <li><a href="chosen-category.html" id="powersupply">Power Supplies</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- ASIDE -->
+                <div id="aside" class="col-md-3">
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Price</h3>
+                        <div class="price-filter">
+                            <div id="price-slider"></div>
+                            <div class="input-number price-min">
+                                <input id="price-min" type="number">
+                                <span class="qty-up">+</span>
+                                <span class="qty-down">-</span>
+                            </div>
+                            <span>-</span>
+                            <div class="input-number price-max">
+                                <input id="price-max" type="number">
+                                <span class="qty-up">+</span>
+                                <span class="qty-down">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /aside Widget -->
+
+                    <!-- aside Widget -->
+                    <div class="aside">
+                        <h3 class="aside-title">Producer</h3>
+                        <div class="checkbox-filter" id="producersListDiv">
+                        </div>
+                    </div>
+                    <!-- /aside Widget -->
+
+                </div>
+                <!-- /ASIDE -->
+
+                <!-- STORE -->
+                <div id="store" class="col-md-9">
+                    <!-- store top filter -->
+                    <div class="store-filter clearfix">
+                        <div class="store-sort">
+                            <label>
+                                Sort By:
+                                <select class="input-select" id="sortTypeSelection">
+                                    <option value="name_asc">By name(ASC)</option>
+                                    <option value="name_desc">By name(DESC)</option>
+                                    <option value="price_asc">From cheap to expensive</option>
+                                    <option value="price_desc">From expensive to cheap</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /store top filter -->
+
+                    <!-- store products -->
+                    <div class="row" id="mainRow">
+
+                    </div>
+                    <!-- /store products -->
+                </div>
+                <!-- /STORE -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row" id="row">
+                    <div class="col-md-3 col-xs-6 col-md-push-1">
+                        <div class="footer">
+                            <h3 class="footer-title">Categories</h3>
+                            <ul class="footer-links">
+                                <li><a href="chosen-category.html" id="cpus">CPUs</a></li>
+                                <li><a href="chosen-category.html" id="motherboards">Motherboards</a></li>
+                                <li><a href="chosen-category.html" id="rams">RAMs</a></li>
+                                <li><a href="chosen-category.html" id="gpus">Graphics cards</a></li>
+                                <li><a href="chosen-category.html" id="memory">Memory storages</a></li>
+                                <li><a href="chosen-category.html" id="powersupply">Power Supplies</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 col-md-push-5">
+                        <div class="footer">
+                            <h3 class="footer-title">About Me</h3>
+                            <p>I'm a student, ho loves to build-up powerful PC complectations. Also i can sell you hardware you need.</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>Ugorska Street, Lviv, Ukraine</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+096-603-43-62</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>yurkkaa@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
+
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
+
+    <!-- jQuery Plugins -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <!--    <script src="js/main.js"></script>-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        let serverUrl = 'http://localhost:9999/';
+        let categoryName = window.localStorage.getItem('categoryNeeded');
+        //        var categoryId = window.localStorage.getItem('data-categoryId');
+
+        var producersList = [];
+
+        $(document).ready(function() {
+
+
+            var count = getKeys().length;
+            $('#dropdownCart').append(
+                `<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <div class="qty" id="cart-list-count">${count}</div>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list" id="cart-list">
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="payment.html">Confirm order<i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
+                                </div>
+                            `
+            );
+
+            let token = window.localStorage.getItem('auth_token');
+
+            $.ajaxSetup({
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            });
+
+            fillCart();
+
+            getProducers();
+
+            getCommodity();
+
+            $('.cart-dropdown').on('click', function(e) {
+                e.stopPropagation();
+            });
+
+            $(document).on('click', '#cpus', function(e) {
+                window.localStorage.setItem('categoryNeeded', "CPU");
+            });
+
+            $(document).on('change', '#sortTypeSelection', function(e) {
+//                getCommodityOrderBy(document.getElementById('sortTypeSelection').value);
+                getCommodityByCategoryAndProducersNamesInPriceRangeWithOrder();
+            });
+
+            $(document).on('click', '#motherboards', function(e) {
+                window.localStorage.setItem('categoryNeeded', "Motherboard");
+            });
+
+            $(document).on('click', '#rams', function(e) {
+                window.localStorage.setItem('categoryNeeded', "RAM");
+            });
+
+            $(document).on('click', '#gpus', function(e) {
+                window.localStorage.setItem('categoryNeeded', "GPU");
+            });
+
+            $(document).on('change', '#producersCheckbox', function(e) {
+                alert("checkbox was used");
+            });
+
+            $(document).on('click', '#memory', function(e) {
+                window.localStorage.setItem('categoryNeeded', "Memory");
+            });
+
+            $('input[name=checkbox]').change(function() {
+                if ($(this).is(':checked')) {
+                    console.log("push : " + this.value);
+                    producersList.push(this.value);
+                    console.log("producers : " + producersList);
+
+                    getCommodityByCategoryAndProducersNamesInPriceRangeWithOrder();
+                } else {
+                    console.log("remove : " + this.value);
+
+                    producersList.splice(producersList.indexOf(this.value), 1);
+                    console.log("producers : " + producersList);
+
+                    getCommodityByCategoryAndProducersNamesInPriceRangeWithOrder();
+                }
+            });
+
+            $(document).on('click', '#powersupply', function(e) {
+                window.localStorage.setItem('categoryNeeded', "Power supply");
+            });
+
+            $(document).on('click', '#addToCart', function(e) {
+                var addToList;
+                for (var i = 0, to = localStorage.length; i < to; i++) {
+                    var listElement = window.localStorage.getItem('cart-list-element-' + i);
+                    if (listElement == null) {
+                        window.localStorage.setItem('cart-list-element-' + i, e.target.value);
+
+                        break;
+                    }
+                }
+                let number = document.getElementById('cart-list-count').innerHTML;
+                number++;
+                document.getElementById('cart-list-count').innerHTML = number;
+                refreshCart();
+            });
+
+            $(document).on('click', '#redirectHref', function(e) {
+                alert(e.value);
+                window.localStorage.setItem('page-productId', e.value);
+            });
+
+            $(document).on('click', '#get-product', function(e) {
+                window.localStorage.setItem('page-productId', e.target.value);
+                window.location.href = "product.html";
+            });
+
+        });
+
+        (function($) {
+            "use strict"
+
+            // Mobile Nav toggle
+            $('.menu-toggle > a').on('click', function(e) {
+                e.preventDefault();
+                $('#responsive-nav').toggleClass('active');
+            })
+
+            // Fix cart dropdown from closing
+            $('.cart-dropdown').on('click', function(e) {
+                e.stopPropagation();
+            });
+
+            // Input number
+            var minPrice = getMinPrice(),
+                maxPrice = getMaxPrice();
+            $('.input-number').each(function() {
+                var $this = $(this),
+                    $input = $this.find('input[type="number"]'),
+                    up = $this.find('.qty-up'),
+                    down = $this.find('.qty-down');
+
+                down.on('click', function() {
+                    var value = parseInt($input.val()) - (maxPrice / 50);
+                    value = value < 1 ? 1 : value;
+                    $input.val(value);
+                    $input.change();
+                    updatePriceSlider($this, value)
+                })
+
+                up.on('click', function() {
+                    var value = parseInt($input.val()) + (maxPrice / 50);
+                    $input.val(value);
+                    $input.change();
+                    updatePriceSlider($this, value)
+                })
+
+            });
+
+            var priceInputMax = document.getElementById('price-max'),
+                priceInputMin = document.getElementById('price-min');
+
+            priceInputMax.addEventListener('change', function() {
+                updatePriceSlider($(this).parent(), this.value)
+            });
+
+            priceInputMin.addEventListener('change', function() {
+                updatePriceSlider($(this).parent(), this.value)
+            });
+
+            function updatePriceSlider(elem, value) {
+                if (elem.hasClass('price-min')) {
+                    console.log('min' + value);
+                    priceSlider.noUiSlider.set([value, null]);
+                } else if (elem.hasClass('price-max')) {
+                    console.log('max' + value);
+                    priceSlider.noUiSlider.set([null, value]);
+                }
+
+//                getCommodityBetween($('#price-min').val(), $('#price-max').val());
+                getCommodityByCategoryAndProducersNamesInPriceRangeWithOrder();
+            }
+
+            // Price Slider
+            var priceSlider = document.getElementById('price-slider');
+            if (priceSlider) {
+                noUiSlider.create(priceSlider, {
+                    start: [minPrice, maxPrice],
+                    connect: true,
+                    step: (maxPrice / 40),
+                    range: {
+                        'min': minPrice,
+                        'max': maxPrice
+                    }
+                });
+
+                priceSlider.noUiSlider.on('update', function(values, handle) {
+                    var value = values[handle];
+                    handle ? priceInputMax.value = value : priceInputMin.value = value;
+
+                });
+
+                priceSlider.noUiSlider.on('change', function(values, handle) {
+//                    getCommodityBetween($('#price-min').val(), $('#price-max').val());
+                    getCommodityByCategoryAndProducersNamesInPriceRangeWithOrder();
+                });
+
+            }
+
+        })(jQuery);
+
+        function getCommodityByCategoryAndProducersNamesInPriceRangeWithOrder() {
+            var minPrice = $('#price-min').val(),
+                maxPrice = $('#price-max').val(),
+                order_type = document.getElementById('sortTypeSelection').value;
+
+            console.log(minPrice);
+            console.log(maxPrice);
+            console.log(JSON.stringify(producersList));
+
+            $('#mainRow').empty();
+            $.ajax({
+                url: serverUrl + 'commodities/producers/category-name/' + categoryName + '/price-range=' + minPrice + '&' + maxPrice + '/orderby=' + order_type,
+                method: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(producersList),
+                complete: function(msg, status, jqXHR) {
+                    console.log(msg.responseJSON);
+                    $.each(msg.responseJSON, function(key, value) {
+                        console.log(value.id);
+                        $('#mainRow').append(
+                            `<div class="col-md-4 col-xs-6">
+                                <div class="product">
+                                    <div class="product-img">
+                                        <img src="${value.imageURL}" alt=""></a>
+                                    </div>
+                                    <div class="product-body">
+                                       <p class="product-category">${value.category.name}</p>
+                                       <h3 class="product-name"><a href="product.html" id="redirectHref">${value.name}</a></h3>
+                                       <p></p>
+                                       <h4 class="product-price">${value.price}$ <del class="product-old-price"> ${(value.price + 20)}$</del></h4>
+                                    </div>
+                                    <div class="add-to-cart">
+                                        <button class="add-to-cart-btn" id="addToCart" value="${value.id}"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                        <button id="get-product" value="${value.id}">More info</button>
+                                    </div>                            
+                                </div>
+                            </div>
+                        `
+                        );
+                    });
+
+                }
+            });
+        }
+
+
+        function getMinPrice() {
+            var returnVal;
+            $.ajax({
+                url: serverUrl + 'commodities/get-cheapest-price/' + categoryName,
+                method: 'GET',
+                async: false,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log("min price : " + response);
+                    returnVal = (response == 0) ? 1 : response;
+                }
+            });
+            return returnVal;
+        }
+
+        function getMaxPrice() {
+            var returnVal;
+
+            $.ajax({
+                url: serverUrl + 'commodities/get-most-expensive-price/' + categoryName,
+                method: 'GET',
+                async: false,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log("max price : " + response);
+                    returnVal = (response == 0) ? 1 : response;
+                }
+            });
+            return returnVal;
+        }
+
+        function refreshCart() {
+            var myNode = document.getElementById("cart-list");
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.firstChild);
+            }
+            fillCart();
+        }
+
+        function deleteFromListing(currentListElement) {
+            $('#productListEl-' + currentListElement).empty();
+            document.getElementById('cart-list-count').innerHTML = getKeys().length;
+
+            let number = document.getElementById('cart-list-count').innerHTML;
+            number--;
+            document.getElementById('cart-list-count').innerHTML = number;
+            window.localStorage.removeItem("cart-list-element-" + currentListElement);
+        }
+
+        function getKeys() {
+            var keysList = [];
+            for (key in localStorage) {
+                if (key.includes('cart-list-element')) {
+                    //                    alert(key);
+                    keysList.push(key);
+                } else {
+                    continue;
+                }
+            }
+            return keysList;
+        }
+
+        function fillCart() {
+            var keys = getKeys();
+
+            for (var i = 0; i < keys.length; i++) {
+                let currentListElement = window.localStorage.getItem(keys[i]);
+                if (currentListElement != null) {
+                    let number = keys[i].split('-')[3];
+                    $.ajax({
+                        url: serverUrl + 'commodities/get-commodity/' + currentListElement,
+                        method: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json',
+                        success: function(response) {
+                            $('#cart-list').append(`
+                                                    <div class="product-widget" id="productListEl-${number}">
+                                                    <div class="product-img">
+                                                    <img src="${response.imageURL}"></img>
+                                                    </div>
+                                                    <div class="product-body">
+                                                    <h3 class="product-name"><a href="#" onclick="redirect(${currentListElement})">${response.name}</a></h3>
+                                                    <h4 class="product-price"><span class="qty">1x</span>${response.price} $</h4>
+                                                    </div>
+                                                    <button class="delete" id="deleteFromCart" value="${number}" onclick="deleteFromListing(${number})"><i class="fa fa-close"></i></button>
+                        				            </div>
+                        				            </div>
+                                                `);
+                        }
+                    });
+                }
+            }
+
+        }
+
+        function redirect(currentListElement) {
+            //            alert("redirecting to page-productId : " + currentListElement);
+            window.localStorage.setItem('page-productId', currentListElement);
+            $(location).attr('href', "product.html");
+            //            window.location.replace("product.html");
+        }
+
+        function test() {
+            alert("test");
+        }
+
+        function getProducers() {
+            $.ajax({
+                url: serverUrl + 'producers/getProducersByCategoryName/' + categoryName,
+                method: 'GET',
+                async: false,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    $.each(response, function(key, value) {
+                        $('#producersListDiv').append(
+                            `<div class="input-checkbox">
+                                <input type="checkbox" name="checkbox" id="${value.name}" value="${value.name}">
+                                <label for="${value.name}">
+                                    <span></span>
+                                    ${value.name}
+                                    <small>(${getCommodityCountOfProducerByName(value.name, categoryName)})</small>
+                                </label>
+                            </div>`
+                        );
+                    });
+                }
+            })
+        }
+
+        function getCommodityCountOfProducerByName(name, categoryName) {
+            var resultValue;
+            $.ajax({
+                url: serverUrl + 'producers/getCommodityCountOfProducerByName/' + name + '-' + categoryName,
+                method: 'GET',
+                async: false,
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    resultValue = response;
+                }
+            });
+            return resultValue;
+        }
+
+        function getCommodity() {
+            $.ajax({
+                url: serverUrl + 'commodities/category-name/' + categoryName,
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        $('#mainRow').append(
+                            `<div class="col-md-4 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="${value.imageURL}" alt=""></a>
+                                </div>
+                                <div class="product-body">
+                                   <p class="product-category">${value.category.name}</p>
+                                    <h3 class="product-name"><a href="product.html" id="redirectHref">${value.name}</a></h3>
+                                    <p></p>
+                                    <h4 class="product-price">${value.price}$ <del class="product-old-price"> ${(value.price + 20)}$</del></h4>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn" id="addToCart" value="${value.id}"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    <button id="get-product" value="${value.id}">More info</button>
+                                </div>                            
+                            </div>
+                            </div>
+                            `
+                        );
+                    });
+                }
+            })
+        }
+
+        function getCommodityOrderBy(type) {
+            $('#mainRow').empty();
+            $.ajax({
+                url: serverUrl + 'commodities/category-name/' + categoryName + '/orderby=' + type,
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        $('#mainRow').append(
+                            `<div class="col-md-4 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="${value.imageURL}" alt=""></a>
+                                </div>
+                                <div class="product-body">
+                                   <p class="product-category">${value.category.name}</p>
+                                    <h3 class="product-name"><a href="product.html" id="redirectHref">${value.name}</a></h3>
+                                    <p></p>
+                                    <h4 class="product-price">${value.price}$ <del class="product-old-price"> ${(value.price + 20)}$</del></h4>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn" id="addToCart" value="${value.id}"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    <button id="get-product" value="${value.id}">More info</button>
+                                </div>                            
+                            </div>
+                            </div>
+                            `
+                        );
+                    });
+                }
+            })
+        }
+
+        function getCommodityBetween(from, to) {
+            $('#mainRow').empty();
+            $.ajax({
+                url: serverUrl + 'commodities/category-name/' + categoryName + '/price-range/' + from + '&' + to,
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    $.each(response, function(key, value) {
+                        $('#mainRow').append(
+                            `<div class="col-md-4 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                        <img src="${value.imageURL}" alt=""></a>
+                                </div>
+                                <div class="product-body">
+                                   <p class="product-category">${value.category.name}</p>
+                                    <h3 class="product-name"><a href="product.html" id="redirectHref">${value.name}</a></h3>
+                                    <p></p>
+                                    <h4 class="product-price">${value.price}$ <del class="product-old-price"> ${(value.price + 20)}$</del></h4>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn" id="addToCart" value="${value.id}"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                    <button id="get-product" value="${value.id}">More info</button>
+                                </div>                            
+                            </div>
+                            </div>
+                            `
+                        );
+                    });
+                }
+            })
+        }
+
+        function setCommodityPage(stringId) {
+            window.localStorage.setItem('page-productId', stringId);
+            window.location.href = "product.html";
+        }
+
+    </script>
+
+</body>
+
+</html>

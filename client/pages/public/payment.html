@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Electro - HTML Ecommerce Template</title>
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="css/slick-theme.css" />
+
+    <!-- nouislider -->
+    <link type="text/css" rel="stylesheet" href="css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- TOP HEADER -->
+        <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="#"><i class="fa fa-phone"></i> +096-603-43-62</a></li>
+                    <li><a href="#"><i class="fa fa-envelope-o"></i> yurkkaa@gmail.com</a></li>
+                    <li><a href="#"><i class="fa fa-map-marker"></i> Ugorska Street, Lviv, Ukraine</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TOP HEADER -->
+
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="#" class="logo">
+                                <img src="./img/logo.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- /LOGO -->
+
+
+                </div>
+                <!-- row -->
+            </div>
+            <!-- container -->
+        </div>
+        <!-- /MAIN HEADER -->
+    </header>
+    <!-- /HEADER -->
+
+    <!-- NAVIGATION -->
+    <nav id="navigation">
+        <!-- container -->
+        <div class="container">
+            <!-- responsive-nav -->
+            <div id="responsive-nav">
+                <!-- NAV -->
+                <ul class="main-nav nav navbar-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chosen-category.html" id="cpus">CPUs</a></li>
+                    <li><a href="chosen-category.html" id="motherboards">Motherboards</a></li>
+                    <li><a href="chosen-category.html" id="rams">RAMs</a></li>
+                    <li><a href="chosen-category.html" id="gpus">Graphics cards</a></li>
+                    <li><a href="chosen-category.html" id="memory">Memory storages</a></li>
+                    <li><a href="chosen-category.html" id="powersupply">Power Supplies</a></li>
+                </ul>
+                <!-- /NAV -->
+            </div>
+            <!-- /responsive-nav -->
+        </div>
+        <!-- /container -->
+    </nav>
+    <!-- /NAVIGATION -->
+
+    <!-- BREADCRUMB -->
+    <div id="breadcrumb" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="col-md-12">
+                <h3 class="breadcrumb-header">Payment</h3>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /BREADCRUMB -->
+    <!-- SECTION -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                `
+                <div class="col-md-7">
+                    <!-- Billing Details -->
+                    <div class="billing-details">
+                        <div class="section-title">
+                            <h3 class="title">Billing address</h3>
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="first-name" id="firstName" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="text" name="last-name" id="lastName" placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="email" name="email" id="email" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <input class="input" type="tel" name="tel" id="phoneNumber" placeholder="Phone">
+                        </div>
+                    </div>
+                    <!-- /Billing Details -->
+
+                </div>
+
+                <!-- Order Details -->
+                <div class="col-md-5 order-details">
+                    <div class="section-title text-center">
+                        <h3 class="title">Your Order</h3>
+                    </div>
+                    <div class="order-summary">
+                        <div class="order-col">
+                            <div><strong>PRODUCT</strong></div>
+                            <div><strong>COUNT</strong></div>
+                            <div><strong>TOTAL PRICE</strong></div>
+                        </div>
+                        <div class="order-products" id="order_list">
+
+                        </div>
+                        <div class="order-col">
+                            <div><strong>TOTAL BILL</strong></div>
+                            <div><strong class="order-total" id="total-billing-price"></strong></div>
+                        </div>
+                    </div>
+
+                    <button id="submited" class="primary-btn order-submit">Place order</button>
+                </div>
+                <!-- /Order Details -->
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /SECTION -->
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <!-- top footer -->
+        <div class="section">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row" id="row">
+                    <div class="col-md-3 col-xs-6 col-md-push-1">
+                        <div class="footer">
+                            <h3 class="footer-title">Categories</h3>
+                            <ul class="footer-links">
+                                <li><a href="chosen-category.html" id="cpus">CPUs</a></li>
+                                <li><a href="chosen-category.html" id="motherboards">Motherboards</a></li>
+                                <li><a href="chosen-category.html" id="rams">RAMs</a></li>
+                                <li><a href="chosen-category.html" id="gpus">Graphics cards</a></li>
+                                <li><a href="chosen-category.html" id="memory">Memory storages</a></li>
+                                <li><a href="chosen-category.html" id="powersupply">Power Supplies</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 col-md-push-5">
+                        <div class="footer">
+                            <h3 class="footer-title">About Me</h3>
+                            <p>I'm a student, who loves to build-up powerful PC builds. Also i can sell hardware you need.</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>Ugorska Street, Lviv, Ukraine</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+096-603-43-62</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>yurkkaa@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="clearfix visible-xs"></div>
+
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top footer -->
+
+        <!-- bottom footer -->
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <ul class="footer-payments">
+                            <li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+                            <li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+                            <li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+                        </ul>
+                        <span class="copyright">
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>
+                                document.write(new Date().getFullYear());
+
+                            </script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </span>
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /bottom footer -->
+    </footer>
+    <!-- /FOOTER -->
+
+    <!-- jQuery Plugins -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/nouislider.min.js"></script>
+    <script src="js/jquery.zoom.min.js"></script>
+    <!--    <script src="js/main.js"></script>-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        let serverUrl = 'http://localhost:9999/';
+
+        var itemsList = [];
+
+        $(document).ready(function() {
+            var keys = getKeys();
+            //            console.log(keys);
+
+            var items = [];
+
+            let number;
+
+            let total_price = 0;
+
+            for (var i = 0; i < keys.length; i++) {
+                let currentListElement = window.localStorage.getItem(keys[i]);
+                if (currentListElement != null) {
+
+                    let count = $('#commodity-list-count-' + currentListElement).text();
+                    let price = $('#commodity-list-price-' + currentListElement).text();
+
+                    if (items.indexOf(currentListElement) == -1) {
+                        items.push(currentListElement);
+                        //                        console.log(items);
+                        $.ajax({
+                            url: serverUrl + 'commodities/get-commodity/' + currentListElement,
+                            method: 'GET',
+                            async: false,
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            success: function(response) {
+
+                                itemsList.push({
+                                    "count": 1,
+                                    "commodity": response
+                                });
+                                //                                console.log("items : " + items);
+
+                                $('#order_list').append(
+                                    `<div class="order-col">
+                                            <div id="commodity-list-name-${currentListElement}">${response.name}</div>
+                                            <div id="commodity-list-count-${currentListElement}">1</div>
+                                            <div id="commodity-list-price-${currentListElement}">${response.price}</div>
+                                        </div>
+                                        `
+                                );
+
+                                total_price = total_price + (response.price / 1);
+
+                            }
+                        });
+                    } else {
+                        var element_count = document.getElementById('commodity-list-count-' + currentListElement);
+                        var element_price = document.getElementById('commodity-list-price-' + currentListElement);
+
+                        total_price = total_price + (price / count);
+
+                        element_price.textContent = (price / count) * ((count / 1) + 1);
+
+                        element_count.textContent = (count / 1 + 1);
+
+                        let itemElement = itemsList.find((item) => {
+                            return item.commodity.id === currentListElement / 1;
+                        });
+
+                        //                        console.log(itemElement);
+
+                        itemElement.count = itemElement.count + 1;
+
+                    }
+
+                }
+
+
+            }
+            //            console.log(itemsList);
+
+            document.getElementById('total-billing-price').textContent = total_price;
+            let token = window.localStorage.getItem('auth_token');
+
+            $.ajaxSetup({
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            });
+
+            $(document).on('click', '#redirectHref', function(e) {
+
+                window.localStorage.setItem('page-productId', value.commodityId);
+            });
+
+            $(document).on('click', '#submited', function(e) {
+                send();
+            });
+
+            $(document).on('click', '#get-product', function(e) {
+                window.localStorage.setItem('page-productId', document.getElementById('get-product').value);
+                window.location.href = "product.html";
+            });
+
+            $(document).on('click', '#cpus', function(e) {
+                window.localStorage.setItem('categoryNeeded', "CPU");
+            });
+
+            $(document).on('click', '#motherboards', function(e) {
+                window.localStorage.setItem('categoryNeeded', "Motherboard");
+            });
+
+            $(document).on('click', '#rams', function(e) {
+                window.localStorage.setItem('categoryNeeded', "RAM");
+            });
+
+            $(document).on('click', '#gpus', function(e) {
+                window.localStorage.setItem('categoryNeeded', "GPU");
+            });
+
+            $(document).on('click', '#memory', function(e) {
+                window.localStorage.setItem('categoryNeeded', "Memory");
+            });
+
+            //            $(document).on('click', '#deleteFromCart', function(e) {
+            ////                $('#cart-list').remove();
+            //            });
+
+            $(document).on('click', '#powersupply', function(e) {
+                window.localStorage.setItem('categoryNeeded', "Power supply");
+            });
+
+            $(document).on('click', '#addToCart', function(e) {
+                var addToList;
+                var count = 0;
+                for (var i = 0, to = localStorage.length; i < to; i++) {
+                    var listElement = window.localStorage.getItem('cart-list-element-' + i);
+                    if (listElement != null) {
+                        count++;
+                    }
+                }
+                window.localStorage.setItem('cart-list-element-' + count, e.target.value);
+
+
+
+            });
+
+        })
+
+        function getKeys() {
+            var keysList = [];
+            for (key in localStorage) {
+                if (key.includes('cart-list-element')) {
+                    keysList.push(key);
+                } else {
+                    continue;
+                }
+            }
+            return keysList;
+        }
+
+        function send() {
+
+            let date = new Date();
+            let status = 'WAITITNG_FOR_CONFIRMATION';
+            let firstName = $('#firstName').val();
+            let lastName = $('#lastName').val();
+            let email = $('#email').val();
+            let phoneNumber = $('#phoneNumber').val();
+            let items = itemsList;
+
+            let orderObj;
+
+            orderObj = {
+                date: date,
+                status: status,
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                phoneNumber: phoneNumber,
+                items: items
+            }
+
+
+            $.ajax({
+                url: serverUrl + 'orders',
+                method: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(orderObj),
+                complete: function(data) {
+                    //                    console.log(data);
+                    //                    console.log(orderObj);
+                }
+            });
+
+
+            clearLocalStorageAndRedirect();
+
+
+        } // DONE
+
+        function clearLocalStorageAndRedirect() {
+            var keys = getKeys();
+            for (var i = 0, length = keys.length; i < length; i++) {
+                console.log("before delete : " + keys[i]);
+                localStorage.removeItem(keys[i]);
+                console.log("after delete : " + keys[i]);
+
+            }
+
+            swal("Order complete!", "You've made an order!", "success");
+            setTimeout(function() {
+                $(location).attr('href', "index.html");
+            }, 1500);
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form id="signinForm">
+                    <h2>Please Sign In</h2>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" id="username" class="form-control input-lg" placeholder="Username">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="password" id="password" class="form-control input-lg" placeholder="Password">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="submit" value="Login" class="btn btn-primary btn-block btn-lg">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script>
+       let serverUrl = 'http://localhost:9999/';
+
+        $(document).ready(function(e) {
+            $('#signinForm').submit(function(e) {
+                e.preventDefault();
+                signin();
+            })
+        });
+
+        function signin() {
+            let loginData = {
+                username: $('#username').val(),
+                password: $('#password').val()
+            };
+
+            $.ajax({
+                url: serverUrl + 'auth/signin',
+                method: 'POST',
+                data: JSON.stringify(loginData),
+                contentType: 'application/json',
+                complete: function(data) {
+                    if (data.status == 200) {
+                        window.localStorage.setItem('auth_token', data.responseJSON.token);
+                        window.localStorage.setItem('auth_role', data.responseJSON.role);
+                        console.log(data.responseJSON);
+
+                        if (data.responseJSON.role == 'ROLE_ADMIN') {
+                            $(location).attr('href', 'pages/admin/index.html');
+                        }
+
+                        if (data.responseJSON.role == 'ROLE_USER') {
+                            $(location).attr('href', 'pages/public/index.html');
+                        }
+
+                        alert("Success!!!");
+//                        $(location).attr('href', 'index.html');
+                    }
+                }
+            })
+
+        }
+
+    </script>
+</body>
+</html>

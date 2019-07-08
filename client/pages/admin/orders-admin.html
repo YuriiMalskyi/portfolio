@@ -1,0 +1,538 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Admin panel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Minimal Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+
+    <style>
+        /* Базовые стили слоя затемнения и модального окна  */
+        .overlay {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+            display: none;
+            /* фон затемнения */
+            background-color: rgba(0, 0, 0, 0.65);
+            position: fixed;
+            /* фиксированное поцизионирование */
+            cursor: default;
+            /* тип курсара */
+        }
+
+        /* активируем слой затемнения */
+        .overlay:target {
+            display: block;
+        }
+
+        /* стили модального окна */
+        .popup {
+            top: -100%;
+            right: 0;
+            left: 50%;
+            font-size: 14px;
+            z-index: 20;
+            margin: 0;
+            width: 85%;
+            min-width: 320px;
+            max-width: 600px;
+            /* фиксированное позиционирование, окно стабильно при прокрутке */
+            position: fixed;
+            padding: 15px;
+            border: 1px solid #383838;
+            background: #fefefe;
+            /* скругление углов */
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            -ms-border-radius: 4px;
+            border-radius: 4px;
+            font: 14px/18px 'Tahoma', Arial, sans-serif;
+            /* внешняя тень */
+            -webkit-box-shadow: 0 15px 20px rgba(0, 0, 0, .22), 0 19px 60px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 15px 20px rgba(0, 0, 0, .22), 0 19px 60px rgba(0, 0, 0, .3);
+            -ms-box-shadow: 0 15px 20px rgba(0, 0, 0, .22), 0 19px 60px rgba(0, 0, 0, .3);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, .22), 0 19px 60px rgba(0, 0, 0, .3);
+            -webkit-transform: translate(-50%, -500%);
+            -ms-transform: translate(-50%, -500%);
+            -o-transform: translate(-50%, -500%);
+            transform: translate(-50%, -500%);
+            -webkit-transition: -webkit-transform 0.6s ease-out;
+            -moz-transition: -moz-transform 0.6s ease-out;
+            -o-transition: -o-transform 0.6s ease-out;
+            transition: transform 0.6s ease-out;
+        }
+
+        /* активируем модальный блок */
+        .overlay:target+.popup {
+            -webkit-transform: translate(-50%, 0);
+            -ms-transform: translate(-50%, 0);
+            -o-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+            top: 20%;
+        }
+
+        /* формируем кнопку закрытия */
+        .close {
+            top: -10px;
+            right: -10px;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            padding: 0;
+            border: 2px solid #ccc;
+            -webkit-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -ms-border-radius: 15px;
+            -o-border-radius: 15px;
+            border-radius: 15px;
+            background-color: rgba(61, 61, 61, 0.8);
+            -webkit-box-shadow: 0px 0px 10px #000;
+            -moz-box-shadow: 0px 0px 10px #000;
+            box-shadow: 0px 0px 10px #000;
+            text-align: center;
+            text-decoration: none;
+            font: 13px/20px 'Tahoma', Arial, sans-serif;
+            font-weight: bold;
+            -webkit-transition: all ease .8s;
+            -moz-transition: all ease .8s;
+            -ms-transition: all ease .8s;
+            -o-transition: all ease .8s;
+            transition: all ease .8s;
+        }
+
+        .close:before {
+            color: rgba(255, 255, 255, 0.9);
+            content: "X";
+            text-shadow: 0 -1px rgba(0, 0, 0, 0.9);
+            font-size: 12px;
+        }
+
+        .close:hover {
+            background-color: rgba(252, 20, 0, 0.8);
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+
+        /* изображения внутри окна */
+        .popup img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* миниатюры слева/справа */
+        .pic-left,
+        .pic-right {
+            width: 25%;
+            height: auto;
+        }
+
+        .pic-left {
+            float: left;
+            margin: 5px 15px 5px 0;
+        }
+
+        .pic-right {
+            float: right;
+            margin: 5px 0 5px 15px;
+        }
+
+        /* элементы м-медиа, фреймы */
+        .popup embed,
+        .popup iframe {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            margin: auto;
+            min-width: 320px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .popup h2 {
+            /* заголовок 2 */
+            margin: 0;
+            color: #008000;
+            padding: 5px 0px 10px;
+            text-align: left;
+            text-shadow: 1px 1px 3px #adadad;
+            font-weight: 500;
+            font-size: 1.4em;
+            font-family: 'Tahoma', Arial, sans-serif;
+            line-height: 1.3;
+        }
+
+        /* параграфы */
+        .popup p {
+            margin: 0;
+            padding: 5px 0
+        }
+
+    </style>
+
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+
+    </script>
+    <link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom Theme files -->
+    <link href="css/style.css" rel='stylesheet' type='text/css' />
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <script src="js/jquery.min.js"> </script>
+    <!-- Mainly scripts -->
+    <script src="js/jquery.metisMenu.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/custom.js"></script>
+    <script src="js/screenfull.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+
+        <!----->
+        <nav class="navbar-default navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <h1> <a class="navbar-brand" href="D:\Politech\Logos final project\project\client\pages\public\index.html">Electro</a></h1>
+            </div>
+            <div class="border-bottom">
+                <div class="full-left">
+                    <section class="full-top">
+                        <button id="toggle"><i class="fa fa-arrows-alt"></i></button>
+                    </section>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+
+            <div class="clearfix">
+
+            </div>
+
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li>
+                            <a href="users-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Users controll</span><span class="fa arrow"></span></a>
+                        </li>
+
+                        <li>
+                            <a href="commodities-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Commodities controll</span><span class="fa arrow"></span></a>
+                        </li>
+
+                        <li>
+                            <a href="categories-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Categories controll</span><span class="fa arrow"></span></a>
+                        </li>
+
+                        <li>
+                            <a href="producers-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Producers controll</span><span class="fa arrow"></span></a>
+                        </li>
+                        <li>
+                            <a href="orders-admin.html" class=" hvr-bounce-to-right"><i class="fa fa-indent nav_icon"></i> <span class="nav-label">Orders controll</span><span class="fa arrow"></span></a>
+                        </li>
+                        <li>
+                            <a href="#" class=" hvr-bounce-to-right"><i class="fa fa-cog fa-spin nav_icon"></i> <span class="nav-label">Settings</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+
+                                <button id="logoutBtn" class="btn btn-danger col-sm-11"><i class="fa fa-sign-out"></i>Logout</button>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="content-main">
+                <div class="grid-form1">
+                    <h3>Orders</h3>
+
+                    <div class="panel-body">
+                        <form class="form-horizontal" id="getOrderForm">
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Find order</label>
+                                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-chevron-circle-right"></i>
+                                        </span>
+                                        <input type="text" class="form-control1" placeholder="Order ID" id="orderID">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-8 col-sm-offset-4">
+                                <button class="btn btn-success" id="findOneBtn">Find one</button>
+                                <button class="btn btn-success" id="findAllBtn">Find all</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <table class="table table-striped" id="ordersTable">
+                    <thead>
+                        <tr>
+                            <td>ID</td>
+                            <td>Date</td>
+                            <td>Status</td>
+                            <td>Name</td>
+                            <td>Surname</td>
+                            <td>Email</td>
+                            <td>Phone number</td>
+                            <td>Items</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+
+    <!-- HTML-код модального окна -->
+    <div id="myModalBox" class="modal fade" width="1200px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Заголовок модального окна -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Order items</h4>
+                </div>
+                <!-- Основное содержимое модального окна -->
+                <div class="modal-body table table-striped" id="modalWindow">
+                    <div class="row">
+                        <table class="table table-striped" id="modalWindowOrdersTable">
+                            <thead>
+                                <tr>
+                                    <td>Image</td>
+                                    <td>Name</td>
+                                    <td>Available</td>
+                                    <td>Price</td>
+                                    <td>Category</td>
+                                    <td>Producer</td>
+                                    <td>Order count</td>
+                                    <td>Summ</td>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Футер модального окна -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="js/jquery.nicescroll.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/global.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        var GlobalOrderId;
+
+        var responseArray = [];
+
+        function logout() {
+            window.localStorage.removeItem('auth_token');
+            window.location('signin.html');
+        }
+
+        $(document).ready(function() {
+
+            let token = window.localStorage.getItem('auth_token');
+
+            $.ajaxSetup({
+                headers: {
+                    'Authorization': 'Bearer ' + token
+                }
+            });
+
+            getOrders();
+
+            submit();
+
+            $(document).on('click', '#delete', function(e) {
+                deleteOrder(e.target.value);
+
+                $('#' + e.target.value).empty();
+            });
+
+            $(document).on('click', '#edit', function(e) {
+                showDetails(e.target.value);
+                console.log("tr id : " + e.target.value);
+                $("#myModalBox").modal('show');
+            });
+            $(document).on('click', '#findOneBtn', function(e) {
+                console.log($('#orderID').val())
+                var id = $('#orderID').val() / 1;
+                if ($('#orderID').val() != "") {
+                    getOrderById(id);
+
+                } else {
+                    swal("ID missing!", "Insert ID please!", "error");
+                }
+            });
+
+            $(document).on('click', '#findAllBtn', function(e) {
+                $('#getOrderForm')[0].reset();
+                getOrders();
+            });
+
+        });
+
+        function submit() {
+            $('#getOrderForm').submit(function(e) {
+                e.preventDefault(e);
+
+            });
+
+
+        }
+
+
+        function showDetails(orderId) {
+
+            var order = responseArray[orderId];
+
+            $('#modalWindowOrdersTable tbody').empty();
+
+            console.log(order);
+
+            var itemsList = order.items;
+            for (var i = 0, length = itemsList.length; i < length; i++) {
+                var image = itemsList[i].commodity.imageURL;
+                var name = itemsList[i].commodity.name;
+                var available = itemsList[i].commodity.count;
+                var price = itemsList[i].commodity.price;
+                var category = itemsList[i].commodity.category.name;
+                var producer = itemsList[i].commodity.producer.name;
+
+                var orderCount = itemsList[i].count;
+                var orderPrice = itemsList[i].count * itemsList[i].commodity.price;
+
+                $('#modalWindowOrdersTable tbody').append(
+                    `
+                        <tr id="${orderId}">
+                            <td><img src="${image}" width=200px></img> </td>
+                            <td>${name}</td>
+                            <td>${available}</td>
+                            <td>${price}</td>
+                            <td>${category}</td>
+                            <td>${producer}</td>
+                            <td>${orderCount}</td>
+                            <td>${orderPrice}</td>
+                        </tr>
+                        `
+                );
+            }
+        }
+
+        function getOrderById(id) {
+            $('#ordersTable tbody').empty();
+            $.ajax({
+                url: serverUrl + 'orders/get-' + id,
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    responseArray = [];
+                    responseArray.push(response);
+                    var date = response.date;
+                    var date2 = new Date(date[0], date[1] - 1, date[2]);
+                    var date3 = date2.toLocaleDateString();
+
+                    $('#ordersTable tbody').append(
+                        `
+                            <tr id="${response.id}">
+                                <td> ${ response.id }</td>
+                                <td> ${ date3 }</td>
+                                <td> ${ response.status } </td>
+                                <td> ${ response.firstName } </td>
+                                <td> ${ response.lastName } </td>
+                                <td> ${ response.email } </td>
+                                <td> ${ response.phoneNumber } </td>
+                                <td> <button id="edit" value="${responseArray.length - 1}">Show order details</button>                    
+                            </tr>
+                            `
+                    );
+
+                }
+            });
+        }
+
+        function getOrders() {
+            $('#ordersTable tbody').empty();
+            $.ajax({
+                url: serverUrl + 'orders',
+                method: 'GET',
+                dataType: 'json',
+                contentType: 'application/json',
+                success: function(response) {
+                    console.log(response);
+                    responseArray = [];
+                    $.each(response, function(key, value) {
+                        responseArray.push(value);
+                        var date = value.date;
+                        var date2 = new Date(date[0], date[1] - 1, date[2]);
+                        var date3 = date2.toLocaleDateString();
+
+                        $('#ordersTable tbody').append(
+                            `
+                            <tr id="${value.id}">
+                                <td> ${ value.id }</td>
+                                <td> ${ date3 }</td>
+                                <td> ${ value.status } </td>
+                                <td> ${ value.firstName } </td>
+                                <td> ${ value.lastName } </td>
+                                <td> ${ value.email } </td>
+                                <td> ${ value.phoneNumber } </td>
+                                <td> <button id="edit" value="${responseArray.length - 1}">Show order details</button>                    
+                            </tr>
+                            `
+                        );
+
+                    })
+                }
+            });
+        } // DONE
+
+    </script>
+</body>
+
+</html>
