@@ -15,11 +15,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrdersDTO {
 
-//	@JsonIgnore
 	private int id;
 
-//	private String orderId;
-	
 	private LocalDate date;
 	
 	private Status status;
